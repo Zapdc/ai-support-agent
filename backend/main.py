@@ -12,7 +12,14 @@ import trello
 load_dotenv()
 app = FastAPI()
 
-origins = ["http://localhost:3000"]
+origins = [
+    "http://localhost:3000",  # local dev
+    "https://ai-support-agent-gray.vercel.app",
+    "ai-support-agent-zayeems-projects-b2b77498.vercel.app",
+    "https://ai-support-agent-git-master-zayeems-projects-b2b77498.vercel.app",
+    "https://ai-support-agent-cd5vjfv6h-zayeems-projects-b2b77498.vercel.app",
+]
+
 
 app.add_middleware(
     CORSMiddleware,
