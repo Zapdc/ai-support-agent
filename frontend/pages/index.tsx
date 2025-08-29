@@ -6,6 +6,7 @@ interface ChatResponse {
   error?: string;
   supabase_error?: string;
 }
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -22,7 +23,7 @@ export default function Home() {
 
     try {
       const res = await axios.post<ChatResponse>(
-        "http://127.0.0.1:8000/chat",
+        `${API_BASE_URL}/chat`,
         { text: userInput }
       );
 
