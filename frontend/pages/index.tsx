@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 interface ChatResponse {
   reply: string;
@@ -235,6 +236,7 @@ export default function Home() {
         }}
       />
       <Analytics />
+      <SpeedInsights/>
     </div>
   );
 }
