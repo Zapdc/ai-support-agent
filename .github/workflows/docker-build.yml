@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Build, Push Docker Image, and Deploy to Render
 
 on:
   push:
@@ -29,3 +29,7 @@ jobs:
           file: ./backend/Dockerfile
           push: true
           tags: zayeem08/ai-support:latest
+
+      - name: Trigger Render Deploy
+        run: |
+          curl -X POST -H "Content-Type: application/json" ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
