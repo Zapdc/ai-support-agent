@@ -1,13 +1,13 @@
+import trello
+from huggingface_hub import InferenceClient
+from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+from supabase import create_client
+from pydantic import BaseModel
+from fastapi import FastAPI
+import os
 USE_HF_API = True  # Always use Hugging Face Inference API
 
-import os
-from fastapi import FastAPI
-from pydantic import BaseModel
-from supabase import create_client
-from dotenv import load_dotenv
-from fastapi.middleware.cors import CORSMiddleware
-from huggingface_hub import InferenceClient
-import trello
 
 load_dotenv()
 app = FastAPI()
@@ -15,19 +15,19 @@ app = FastAPI()
 origins = [
     "http://localhost:3000",  # local dev
     "https://ai-support-agent-gray.vercel.app",
-    "ai-support-agent-zayeems-projects-b2b77498.vercel.app",
+    "https://ai-support-agent-zayeems-projects-b2b77498.vercel.app",
     "https://ai-support-agent-git-master-zayeems-projects-b2b77498.vercel.app",
     "https://ai-support-agent-cd5vjfv6h-zayeems-projects-b2b77498.vercel.app",
 ]
 
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Supabase setup
 SUPABASE_URL = os.getenv("SUPABASE_URL")
