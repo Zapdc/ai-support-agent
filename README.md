@@ -54,7 +54,7 @@ A practical AI-powered support agent designed to automate and streamline user su
 
 - **Backend**:  
     ```bash
-    python main.py
+    uvicorn main:app
     ```
 
 - **Frontend**:  
