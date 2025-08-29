@@ -12,7 +12,6 @@ backend/Include/
 .env
 
 # Docker
-Dockerfile
 .dockerignore
 
 # Frontend Node modules
